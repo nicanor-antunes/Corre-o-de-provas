@@ -41,69 +41,39 @@
       </header>
 
       <section class="metrics" aria-label="Resumo">
-        <article>
-          <span>Provas lidas</span>
-          <strong id="metricScans">0</strong>
-        </article>
-        <article>
-          <span>Media da turma</span>
-          <strong id="metricAverage">--</strong>
-        </article>
-        <article>
-          <span>Questoes criticas</span>
-          <strong id="metricCritical">--</strong>
-        </article>
-        <article>
-          <span>Revisoes pendentes</span>
-          <strong id="metricReview">0</strong>
-        </article>
+        <article><span>Provas lidas</span><strong id="metricScans">0</strong></article>
+        <article><span>Media da turma</span><strong id="metricAverage">--</strong></article>
+        <article><span>Questoes criticas</span><strong id="metricCritical">--</strong></article>
+        <article><span>Revisoes pendentes</span><strong id="metricReview">0</strong></article>
       </section>
 
       <div class="workspace">
         <section class="panel" id="prova">
           <div class="panel-header">
-            <div>
-              <p class="eyebrow">Etapa 1</p>
-              <h2>Configurar prova</h2>
-            </div>
+            <div><p class="eyebrow">Etapa 1</p><h2>Configurar prova</h2></div>
             <button class="ghost-button" id="fillExample">Preencher exemplo</button>
           </div>
 
           <div class="form-grid">
-            <label>
-              Nome da prova
-              <input id="examName" type="text" value="Simulado de Matematica" autocomplete="off">
-            </label>
-            <label>
-              Turma
-              <input id="className" type="text" value="9o ano A" autocomplete="off">
-            </label>
-            <label>
-              Numero de questoes
-              <input id="questionCount" type="number" min="5" max="60" value="10">
-            </label>
-            <label>
-              Nota maxima
-              <input id="maxGrade" type="number" min="1" max="100" value="10">
-            </label>
+            <label>Nome da prova<input id="examName" type="text" value="Simulado de Matematica" autocomplete="off"></label>
+            <label>Turma<input id="className" type="text" value="9o ano A" autocomplete="off"></label>
+            <label>Numero de questoes<input id="questionCount" type="number" min="5" max="60" value="10"></label>
+            <label>Nota maxima<input id="maxGrade" type="number" min="1" max="100" value="10"></label>
           </div>
 
           <div class="answer-card">
-            <div class="answer-card-header">
-              <h3>Gabarito oficial</h3>
-              <span id="answerCountLabel">10 questoes</span>
-            </div>
+            <div class="answer-card-header"><h3>Gabarito oficial</h3><span id="answerCountLabel">10 questoes</span></div>
             <div class="answer-grid" id="answerGrid"></div>
           </div>
         </section>
 
         <section class="panel" id="alunos">
           <div class="panel-header">
-            <div>
-              <p class="eyebrow">Etapa 2</p>
-              <h2>Importar alunos</h2>
+            <div><p class="eyebrow">Etapa 2</p><h2>Importar alunos</h2></div>
+            <div class="button-row">
+              <span class="status-pill" id="rosterStatus">Lista vazia</span>
+              <button class="ghost-button small-button" id="generateCardsFromRoster" type="button">Gerar cartoes</button>
             </div>
-            <span class="status-pill" id="rosterStatus">Lista vazia</span>
           </div>
 
           <label class="dropzone compact-dropzone" for="rosterFile">
@@ -114,39 +84,26 @@
           </label>
 
           <div class="student-list" id="studentList">
-            <div class="empty-state compact">
-              <strong>Nenhum aluno importado</strong>
-              <span>Sem lista, o prototipo usa nomes de exemplo.</span>
-            </div>
+            <div class="empty-state compact"><strong>Nenhum aluno importado</strong><span>Sem lista, o prototipo usa nomes de exemplo.</span></div>
           </div>
         </section>
 
         <section class="panel wide" id="cartoes">
           <div class="panel-header">
-            <div>
-              <p class="eyebrow">Preparacao</p>
-              <h2>Gerar cartoes-resposta</h2>
-            </div>
+            <div><p class="eyebrow">Preparacao</p><h2>Gerar cartoes-resposta</h2></div>
             <div class="button-row">
               <button class="ghost-button" id="generateCards" type="button">Gerar cartoes</button>
               <button class="primary-action" id="printCards" type="button">Imprimir</button>
             </div>
           </div>
-
           <div class="cards-preview" id="cardsPreview">
-            <div class="empty-state compact">
-              <strong>Nenhum cartao gerado</strong>
-              <span>Importe alunos ou gere com nomes de exemplo.</span>
-            </div>
+            <div class="empty-state compact"><strong>Nenhum cartao gerado</strong><span>Importe alunos ou gere com nomes de exemplo.</span></div>
           </div>
         </section>
 
         <section class="panel" id="upload">
           <div class="panel-header">
-            <div>
-              <p class="eyebrow">Etapa 3</p>
-              <h2>Escanear gabaritos</h2>
-            </div>
+            <div><p class="eyebrow">Etapa 3</p><h2>Escanear gabaritos</h2></div>
             <span class="status-pill" id="uploadStatus">Aguardando arquivos</span>
           </div>
 
@@ -160,7 +117,7 @@
               <video id="cameraPreview" autoplay muted playsinline></video>
               <canvas id="captureCanvas" class="hidden"></canvas>
               <div class="camera-placeholder" id="cameraPlaceholder">
-                <span class="upload-icon">◎</span>
+                <span class="upload-icon">+</span>
                 <strong>Use a camera do celular ou notebook</strong>
                 <small>Posicione a folha-resposta dentro da moldura.</small>
               </div>
@@ -188,30 +145,13 @@
 
         <section class="panel wide" id="resultados">
           <div class="panel-header">
-            <div>
-              <p class="eyebrow">Etapa 3</p>
-              <h2>Resultados da turma</h2>
-            </div>
+            <div><p class="eyebrow">Etapa 4</p><h2>Resultados da turma</h2></div>
             <button class="ghost-button" id="exportCsv">Exportar CSV</button>
           </div>
-
-          <div class="empty-state" id="emptyResults">
-            <strong>Nenhuma correcao realizada</strong>
-            <span>Configure o gabarito, envie escaneamentos e clique em corrigir turma.</span>
-          </div>
-
+          <div class="empty-state" id="emptyResults"><strong>Nenhuma correcao realizada</strong><span>Configure o gabarito, envie escaneamentos e clique em corrigir turma.</span></div>
           <div class="table-wrap hidden" id="resultsWrap">
             <table>
-              <thead>
-                <tr>
-                  <th>Aluno</th>
-                  <th>Codigo</th>
-                  <th>Acertos</th>
-                  <th>Erros</th>
-                  <th>Nota</th>
-                  <th>Confianca</th>
-                </tr>
-              </thead>
+              <thead><tr><th>Aluno</th><th>Codigo</th><th>Acertos</th><th>Erros</th><th>Nota</th><th>Confianca</th></tr></thead>
               <tbody id="resultsBody"></tbody>
             </table>
           </div>
@@ -219,28 +159,16 @@
 
         <section class="panel" id="revisao">
           <div class="panel-header">
-            <div>
-              <p class="eyebrow">Controle</p>
-              <h2>Revisao manual</h2>
-            </div>
+            <div><p class="eyebrow">Controle</p><h2>Revisao manual</h2></div>
             <span class="status-pill warning" id="reviewStatus">0 pendencias</span>
           </div>
-
           <div class="review-list" id="reviewList">
-            <div class="empty-state compact">
-              <strong>Sem duvidas por enquanto</strong>
-              <span>Marcacoes com baixa confianca aparecem aqui.</span>
-            </div>
+            <div class="empty-state compact"><strong>Sem duvidas por enquanto</strong><span>Marcacoes com baixa confianca aparecem aqui.</span></div>
           </div>
         </section>
 
         <section class="panel">
-          <div class="panel-header">
-            <div>
-              <p class="eyebrow">Diagnostico</p>
-              <h2>Questoes mais erradas</h2>
-            </div>
-          </div>
+          <div class="panel-header"><div><p class="eyebrow">Diagnostico</p><h2>Questoes mais erradas</h2></div></div>
           <div class="question-bars" id="questionBars"></div>
         </section>
       </div>
